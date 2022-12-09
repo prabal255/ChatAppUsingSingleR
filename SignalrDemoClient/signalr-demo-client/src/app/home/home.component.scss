@@ -1,44 +1,19 @@
-#chatBox {
-  border: 1px solid black;
-  border-radius: 5px;
-  height: 320px;
-  position: relative;
-
-  #msgBox {
-    padding: 5px 10px 5px 10px;
-    height: 200px;
-    overflow-y: auto;
-
-    .msg {
-      border: 1px solid lightgray;
-      border-radius: 10px;
-      padding: 5px 10px 5px 10px;
-      background-color: #9afcb3;
-      margin: 5px 0 5px 0;
-      word-break: break-word;
-
-      &.mine { background-color: rgb(186, 222, 235); }
-    }
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #fccb90;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom right, rgba(252, 203, 144, 1), rgba(213, 126, 235, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom right, rgba(252, 203, 144, 1), rgba(213, 126, 235, 1))
   }
-
-
-  #textarea {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    max-height: 80px;
-    min-height: 80px;
+  
+  .mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 2em;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
   }
-
-
-  #sendBtn {
-    position: absolute;
-    bottom: 0;
-    height: 40px;
-    width: 100%;
-  }
-}
-
-
-
-
