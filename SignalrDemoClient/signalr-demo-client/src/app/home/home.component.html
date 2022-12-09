@@ -33,7 +33,6 @@
       
       <div class="col-md-6 col-lg-7 col-xl-7">
         <ul class="list-unstyled text-white">
-
           <li class="d-flex justify-content-between mb-4">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
               class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
@@ -43,7 +42,6 @@
                 <p class="fw-bold mb-0">{{ selectedUser?.name }}</p>
                 <p class="text-light small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
               </div>
-            
               <div class="card-body">
                 <div class="mb-0" style="width: 500pt;" #msgBox id="msgBox" [scrollTop]="msgBox.scrollHeight">
                   <div *ngFor="let msg of selectedUser?.msgs"   class="msg"  [class.mine]="msg.mine" >
@@ -68,22 +66,14 @@
           <button id="sendBtn" [disabled]="selectedUser == null" (click)="sendMsgInv()" type="button" class="btn btn-light btn-lg btn-rounded float-end">Send</button>
       </div>
 
-      <div class="col-12 col-sm-3 mt-4">
-        <!-- <li class="list-group-item">Select multiple</li>
-        <select class="selectpicker" multiple aria-label="Default select example"  name="selectedGroup" [(ngModel)]="selectedGroup" data-live-search="true">
-        <ul class="list-group" *ngFor="let user of list">
-          <option value={{user}}>{{user}} </option>
-        </ul>
-        </select>
-      {{selectedGroup}}
-      {{users}} -->
+    <div class="col-md-6 col-lg-7 col-xl-7">
       <div style="margin-top: 30px">
         <form (ngSubmit)="submit()">
           <div *ngFor="let cartoon of list">
             <input type="checkbox" (change)="onChange(cartoon, $event.target.checked)" />
             {{ cartoon}}
           </div>
-          <button>Create a Group</button>
+          <button class="btn btn-light btn-lg btn-rounded float-end">New Group</button>
         </form>
         </div>
       </div>
