@@ -23,18 +23,20 @@ export class HomeComponent implements OnInit {
   selectedUser: User;
   list=[]
   selectedGroup=[]
-  cartoonsData= [
-    { id: 0, name: 'Tom and Jerry' },
-    { id: 1, name: 'Rick and Morty' },
-    { id: 2, name: 'Ben 10' },
-    { id: 3, name: 'Batman: The Animated Series' }
-  ];
   //5Tutorial
   msg: string;
 
   submit(){
     let groupName=prompt("Please Enter a Name","Friends")
-    console.log(this.selectedGroup)
+    if(groupName!=null){
+      this.signalrService.createGroup(groupName,this.selectedGroup)
+  
+    }
+    else{
+      alert("Not Created the Group")
+
+    }
+    
   }
   onChange(name: string, isChecked: boolean) {
     // const cartoons = (this.form.controls.name as FormArray);
@@ -49,6 +51,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    debugger
     this.userOnLis();
     this.userOffLis();
     this.logOutLis();

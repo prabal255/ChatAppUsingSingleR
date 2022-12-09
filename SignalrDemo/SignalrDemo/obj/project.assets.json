@@ -6539,11 +6539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Applications\\Demo5\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+      "projectUniqueName": "D:\\Applications\\CHatAppUsingSIngleR\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
       "projectName": "SignalrDemo",
-      "projectPath": "D:\\Applications\\Demo5\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+      "projectPath": "D:\\Applications\\CHatAppUsingSIngleR\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
       "packagesPath": "C:\\Users\\prabal.surana\\.nuget\\packages\\",
-      "outputPath": "D:\\Applications\\Demo5\\SignalrDemo\\SignalrDemo\\obj\\",
+      "outputPath": "D:\\Applications\\CHatAppUsingSIngleR\\SignalrDemo\\SignalrDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\prabal.surana\\AppData\\Roaming\\NuGet\\NuGet.Config",

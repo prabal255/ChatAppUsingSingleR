@@ -17,6 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    debugger
     this.signalrService.startConnection();
 
 

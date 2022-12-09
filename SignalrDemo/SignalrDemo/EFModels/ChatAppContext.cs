@@ -8,9 +8,7 @@ namespace SignalrDemo.EFModels
 {
     public partial class ChatAppContext : DbContext
     {
-        public ChatAppContext()
-        {
-        }
+ 
 
         public ChatAppContext(DbContextOptions<ChatAppContext> options)
             : base(options)

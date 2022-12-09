@@ -44,6 +44,7 @@ export class SignalrService {
     }
 
     startConnection = () => {
+      debugger
         this.hubConnection = new signalR.HubConnectionBuilder()
         .withUrl('https://localhost:5001/toastr', {
             skipNegotiation: true,
@@ -59,8 +60,14 @@ export class SignalrService {
         .catch(err => console.log('Error while starting connection: ' + err))
     }
 
-    registration(){
+   async createGroup(groupName:string,selectedGroup:any)
+    {
+      await this.hubConnection.invoke("GroupName",groupName)
+      .then(()=>{
+
+      })
       
+      .catch(err => console.error(err));
     }
 
 

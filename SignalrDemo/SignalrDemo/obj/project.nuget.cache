@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HqewIRWtgpva5o5+o/XIMbYIxlppuqrp6jQCGxduLzHJRI/2zFRnby5ydlGrhV83cXdeyXMwNgCflVcHNW/+SA==",
+  "dgSpecHash": "Uh0s+QGkRLfUfoAG+sNoS0YEzmQSET/hXjETJc+68fvD9a5EzCht3rQ9PDsPyeGyqaYkkaP6eSDAs6Yd055rdg==",
   "success": true,
-  "projectFilePath": "D:\\Applications\\Demo5\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+  "projectFilePath": "D:\\Applications\\CHatAppUsingSIngleR\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prabal.surana\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\prabal.surana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

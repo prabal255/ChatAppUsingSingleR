@@ -30,6 +30,7 @@ namespace SignalrDemo
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddEntityFrameworkSqlServer();
             //2Tutorial
             services.AddDbContextPool<ChatAppContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection"))
