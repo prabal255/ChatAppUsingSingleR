@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXi0VnnMQ7UCJF8+ztBJmDgAAAAACAAAAAAADZgAAwAAAABAAAAAUo2TcVXh7xOR6Q6lrjtUbAAAAAASAAACgAAAAEAAAAGAHPlwTLHZ89dK1w7evkO+AAAAAKwVcy4vEwPAh+8JaFpNwEk4iNBDKVCqBJjBCihABT0jmp/pMF4F1o/44y0ICUr2xu2+ynC7Wuom9LdqiZQ8GxDu4z7VytXLQY9KyygopJC4SDMjU3xa+9AHTnNUn7+xupZwFO9LDIo+fXDI0CuXngofxbgGRp3WenHYgiGZrRH4UAAAAV0EP7X+qw5KmPTzmSxdBpOJAYdo=</EncryptedPassword>
+    <History>True|2022-12-08T05:30:00.4438118Z;True|2022-12-08T10:54:52.5721761+05:30;True|2022-12-08T10:14:49.0831760+05:30;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <AzureDBConnectionStrings Include="Data Source=tcp:weatherforecastdbserver.database.windows.net,1433;Initial Catalog=WeatherForecast_db;User Id=prabal@weatherforecastdbserver;Password=Radixweb8" />
+    <AzureDBConnectionStrings Include="Data Source=tcp:weatherforecastdbserver.database.windows.net,1433;Initial Catalog=WeatherForecast_db;User Id=prabal@weatherforecastdbserver;Password=Radixweb9" />
+  </ItemGroup>
+</Project>
