@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   msg: string;
 
   submit(){
+    debugger
     let groupName=prompt("Please Enter a Name","Friends")
     if(groupName!=null){
       this.signalrService.createGroup(groupName,this.selectedGroup)
@@ -52,6 +53,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     debugger
+    this.list.push(this.signalrService.userData?.name )
     this.userOnLis();
     this.userOffLis();
     this.logOutLis();
@@ -87,8 +89,9 @@ export class HomeComponent implements OnInit {
 
   //4Tutorial
   userOnLis(): void {
+  
     this.signalrService.hubConnection.on("userOn", (newUser: User) => {
-      // debugger
+      debugger
       console.log(newUser);
       this.users.push(newUser);
       this.list.push(newUser.name)

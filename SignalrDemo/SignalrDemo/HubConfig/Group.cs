@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SignalrDemo.EFModels;
 using SignalrDemo.HubModels;
 using System;
 using System.Collections.Generic;
@@ -10,15 +13,52 @@ namespace SignalrDemo.HubConfig
     //4TutorialGuid
     public partial class MyHub
     {
-        public async Task GroupName(string groupName)
+        public async Task<string> GroupName(Group grp, string people)
         {
-            int currUserId = ctx.Connections.Where(c => c.SignalrId == Context.ConnectionId).Select(c => c.PersonId).SingleOrDefault();
-            List<User> onlineUsers = ctx.Connections
-                .Where(c => c.PersonId != currUserId)
-                .Select(c =>
-                    new User(c.PersonId, ctx.Person.Where(p => p.Id == c.PersonId).Select(p => p.Name).SingleOrDefault(), c.SignalrId)
-                ).ToList();
-            await Clients.Caller.SendAsync("getOnlineUsersResponse", onlineUsers);
+            string grpName = grp.GroupName;
+
+            var group = ctx.Groups.FirstOrDefault(x => x.GroupName == grpName);
+            if (group == null)
+            {
+                await ctx.Groups.AddAsync(grp);
+                await ctx.SaveChangesAsync();
+                UserGroups(grpName, people);
+                return "Group Created";
+            }
+            else
+            {
+                return "Please Enter Different Name";
+            }
+
         }
+        public void UserGroups(string grpName, string people)
+        {
+
+            UserGroup userGroup = new UserGroup();
+            String[] spearator = { "[", ",","]","'","'\'" };
+            String[] strlist = people.Split(spearator,StringSplitOptions.RemoveEmptyEntries);
+
+            var grp = ctx.Groups.FirstOrDefault(x => x.GroupName == grpName);
+            userGroup.GroupId = grp.GroupId;
+            List<string> a = JsonConvert.DeserializeObject<List<string>>(people);
+           
+            Console.WriteLine("This is Array" + a.Count);
+
+               
+            foreach (var item in a)
+            {
+                Console.WriteLine("This is userID " +item);
+                var user = ctx.Person.FirstOrDefault(x => x.Name == item);
+                userGroup.UseId = user.Id;
+                ctx.UserGroups.Add(userGroup);
+                ctx.SaveChanges();
+               userGroup = new UserGroup();
+                userGroup.GroupId = grp.GroupId;
+
+            }
+            //catch (Exception ex) {  }
+        }
+
     }
 }
+

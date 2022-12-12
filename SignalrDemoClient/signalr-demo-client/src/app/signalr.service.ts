@@ -62,7 +62,11 @@ export class SignalrService {
 
    async createGroup(groupName:string,selectedGroup:any)
     {
-      await this.hubConnection.invoke("GroupName",groupName)
+      debugger
+      var Group={
+        GroupName:groupName,
+      }
+      await this.hubConnection.invoke("GroupName",Group,JSON.stringify(selectedGroup))
       .then(()=>{
 
       })
