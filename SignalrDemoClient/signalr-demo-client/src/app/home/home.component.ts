@@ -1,4 +1,4 @@
-import { Message, User } from './../signalr.service';
+import { Group, Message, User } from './../signalr.service';
 import { SignalrService } from 'src/app/signalr.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   //vars
   //4Tutorial
   users: Array<User> = new Array<User>();
+  groups: Array<Group> = new Array<Group>();
   selectedUser: User;
   list=[]
   selectedGroup=[]
@@ -59,13 +60,20 @@ export class HomeComponent implements OnInit {
     this.logOutLis();
     this.getOnlineUsersLis();
     this.sendMsgLis();
+    //this.getGroups(Number(localStorage.getItem('personId')));
+    this.getGroupsLis();
 
     //hubConnection.state is 1 when hub connection is connected.
-    if (this.signalrService.hubConnection.state == 1) this.getOnlineUsersInv();
+    if (this.signalrService.hubConnection.state == 1) 
+    {
+      this.getOnlineUsersInv() ;
+      this.getGroups(Number(localStorage.getItem('personId')))
+    }
     else {
       this.signalrService.ssSubj.subscribe((obj: any) => {
         if (obj.type == "HubConnStarted") {
-          this.getOnlineUsersInv();
+          this.getGroups(Number(localStorage.getItem('personId')))
+          this.getOnlineUsersInv(); 
         }
       });
     }
@@ -85,7 +93,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
+getGroups(id : number): void {
+  debugger  
+  this.signalrService.hubConnection.invoke("getGroups",id)
+  .catch(err => console.error(err));
+}
+private getGroupsLis(): void {
+  this.signalrService.hubConnection.on("getGroupsResponse", (UserGroups: Array<Group>) => {
+    debugger
+    this.groups = [...UserGroups];
+    console.log("this is your groups",this.groups)
+  });
+}
 
   //4Tutorial
   userOnLis(): void {
@@ -114,7 +133,7 @@ export class HomeComponent implements OnInit {
   private getOnlineUsersLis(): void {
     this.signalrService.hubConnection.on("getOnlineUsersResponse", (onlineUsers: Array<User>) => {
       this.users = [...onlineUsers];
-      console.log(this.users);
+      console.log("Hi I am checking",this.users);
       for(var i in this.users)
       {
         debugger
@@ -144,5 +163,8 @@ export class HomeComponent implements OnInit {
       if (receiver.msgs == null) receiver.msgs = [];
       receiver.msgs.push(new Message(msg, false));
     });
+  
+ 
+
   }
 }

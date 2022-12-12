@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
   email=""
   password=""
   async Registration(){
-  debugger
+  // debugger
     var person={
       Name:this.name,
       Username:this.email,

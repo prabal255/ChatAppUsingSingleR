@@ -12,6 +12,13 @@ export class User {
   public connId: string;//signalr
   public msgs: Array<Message>;//5Tutorial (only client-side property)
 }
+export class Group{
+  public  usergroupid : number;
+  public  useid :number;
+  public  groupid :number;
+  public  groupName  : string;
+
+}
 
 
 //5Tutorial
@@ -44,7 +51,7 @@ export class SignalrService {
     }
 
     startConnection = () => {
-      debugger
+      // debugger
         this.hubConnection = new signalR.HubConnectionBuilder()
         .withUrl('https://localhost:5001/toastr', {
             skipNegotiation: true,
@@ -62,7 +69,7 @@ export class SignalrService {
 
    async createGroup(groupName:string,selectedGroup:any)
     {
-      debugger
+      // debugger
       var Group={
         GroupName:groupName,
       }

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SignalrDemo.EFModels;
 using SignalrDemo.HubModels;
+using SignalrDemo.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,6 +16,25 @@ namespace SignalrDemo.HubConfig
     //4TutorialGuid
     public partial class MyHub
     {
+        public async Task getGroups(int id)
+        {
+
+            var param = new SqlParameter[] {
+                         new SqlParameter() {
+                             ParameterName = "@userId",
+
+                             Value = id
+                         },
+
+                         };
+            //var GroupsName= ctx.Database.ExecuteSqlRaw("sp_UserGroups @userId", param);
+            //var GroupsName = ctx.UserGroups.FromSqlRaw("Exec sp_UserGroups @userId", param).ToList();
+            var abc = ctx.Groups.FromSqlRaw($"exec sp_UserGroups {id}").ToList();
+
+            Console.WriteLine("this is the groups" + abc);
+
+            await Clients.Caller.SendAsync("getGroupsResponse", abc);
+        }
         public async Task<string> GroupName(Group grp, string people)
         {
             string grpName = grp.GroupName;
