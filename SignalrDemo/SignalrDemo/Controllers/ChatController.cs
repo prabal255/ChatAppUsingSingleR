@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 using SignalrDemo.EFModels;
 using SignalrDemo.HubModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,44 +20,15 @@ namespace SignalrDemo.Controllers
     {
       ctx = context;
     }
-    [HttpGet]
-    public async Task<string> GetTest()
-    {
-      return "Hello World";
-    }
 
-    //2Tutorial
-    [HttpPost("authMe")]
-    public async Task authMe(PersonInfo personInfo)
-    {
-      string currSignalrID = Context.ConnectionId;
-      Person tempPerson = ctx.Person.Where(p => p.Username == personInfo.userName && p.Password == personInfo.password)
-          .SingleOrDefault();
-
-      if (tempPerson != null) //if credentials are correct
-      {
-        Console.WriteLine("\n" + tempPerson.Name + " logged in" + "\nSignalrID: " + currSignalrID);
-
-        Connections currUser = new Connections
+        //2Tutorial
+        [HttpGet("getGroupMessage")]
+        public IEnumerable<MessageDetail> getGroupMessage(int grpId)
         {
-          PersonId = tempPerson.Id,
-          SignalrId = currSignalrID,
-          TimeStamp = DateTime.Now
-        };
-        await ctx.Connections.AddAsync(currUser);
-        await ctx.SaveChangesAsync();
-
-        User newUser = new User(tempPerson.Id, tempPerson.Name, currSignalrID);
-        await Clients.Caller.SendAsync("authMeResponseSuccess", newUser);//4Tutorial
-        await Clients.Others.SendAsync("userOn", newUser);//4Tutorial
-      }
-
-      else //if credentials are incorrect
-      {
-        await Clients.Caller.SendAsync("authMeResponseFail");
-      }
+         
+            var cards = ctx.MessageDetails.Where(x=>x.GroupId==grpId).ToList();
+            return cards;
+        }
+       
     }
-
-
-  }
 }

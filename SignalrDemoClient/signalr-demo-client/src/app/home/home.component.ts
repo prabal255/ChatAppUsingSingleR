@@ -250,9 +250,23 @@ export class HomeComponent implements OnInit {
 
     this.selectGroup = user;
     this.groupIds = this.selectGroup.groupId;
+    if(this.selectGroup.Grpmsgs==null){
+      console.log("inside")
+      this.selectGroup.Grpmsgs = [];
+
+    }
     this.signalrService.hubConnection
       .invoke('joinGroup', this.groupIds.toString())
       .catch((err) => console.error(err));
+      this.signalrService.getGroupMessages(this.groupIds).subscribe((res:any)=>{
+        console.log(res)
+        for(var i in res){
+          console.log("in loop",res[i].message)
+          this.selectGroup.Grpmsgs.push(new Message(res[i].message, false))
+        }
+        //this.selectGroup.Grpmsgs.push(res)
+        console.log(this.selectGroup)
+      })
   }
   SendMsgToGroup(groupId) {
     // debugger;

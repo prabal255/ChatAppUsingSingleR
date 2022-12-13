@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 //4Tutorial
@@ -33,11 +34,13 @@ export class Message {
 
 
 
+
 @Injectable({ providedIn: 'root' })
 export class SignalrService {
     constructor(
         public toastr: ToastrService,
-        public router: Router //2Tutorial
+        public router: Router ,//2Tutorial,
+        public _http: HttpClient
         ) { }
 
 
@@ -80,6 +83,12 @@ export class SignalrService {
       })
       
       .catch(err => console.error(err));
+    }
+
+    getGroupMessages(grpId : Number)
+    {
+      var link = "https://localhost:5001/api/Chat/getGroupMessage?grpId="+grpId
+      return this._http.get(link)
     }
 
 
