@@ -49,8 +49,6 @@ namespace SignalrDemo.EFModels
             {
                 entity.HasKey(e => e.MessageId);
 
-                entity.Property(e => e.MessageId).ValueGeneratedNever();
-
                 entity.Property(e => e.Message).HasMaxLength(500);
 
                 entity.HasOne(d => d.SentByNavigation)

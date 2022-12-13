@@ -99,7 +99,6 @@ namespace SignalrDemo.HubConfig
         public async Task sendMessageToGroups(string group, string message, int personId)
         {
             MessageDetail messageDetail = new MessageDetail();
-            messageDetail.MessageId = 1;
             messageDetail.SentBy = personId;
             messageDetail.Message = message;
             //var grp = ctx.Groups.FirstOrDefault(x => x.GroupId == );
