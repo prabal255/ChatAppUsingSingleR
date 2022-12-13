@@ -80,6 +80,34 @@ namespace SignalrDemo.HubConfig
             }
             //catch (Exception ex) {  }
         }
+        public async Task sendMsgToGroup(int personId, string msg,string grpName)
+        {
+            MessageDetail messageDetail=new MessageDetail();
+            messageDetail.SentBy = personId;
+            messageDetail.Message = msg;
+            var grp = ctx.Groups.FirstOrDefault(x => x.GroupName == grpName);
+            messageDetail.GroupId = grp.GroupId;
+            //await ctx.MessageDetails.AddAsync(messageDetail);
+            //await ctx.SaveChangesAsync();
+            await Clients.Group(grpName).SendAsync("sendMsgResponsegrp", msg,grp.GroupId);
+        }
+        public async Task joinGroup(string group)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, group);
+
+        }
+        public async Task sendMessageToGroups(string group, string message, int personId)
+        {
+            MessageDetail messageDetail = new MessageDetail();
+            messageDetail.MessageId = 1;
+            messageDetail.SentBy = personId;
+            messageDetail.Message = message;
+            //var grp = ctx.Groups.FirstOrDefault(x => x.GroupId == );
+            messageDetail.GroupId = Convert.ToInt32(group);
+            await ctx.MessageDetails.AddAsync(messageDetail);
+            await ctx.SaveChangesAsync();
+            await Clients.Group(group).SendAsync("RecieveMessageFromGroup", message);
+        }
 
     }
 }

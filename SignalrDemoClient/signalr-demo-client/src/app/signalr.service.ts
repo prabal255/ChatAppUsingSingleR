@@ -15,8 +15,9 @@ export class User {
 export class Group{
   public  usergroupid : number;
   public  useid :number;
-  public  groupid :number;
+  public  groupId :number;
   public  groupName  : string;
+  public Grpmsgs: Array<Message>
 
 }
 
