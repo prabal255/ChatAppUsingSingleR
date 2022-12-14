@@ -248,6 +248,7 @@ export class HomeComponent implements OnInit {
 
   joinGroup(user) {
 
+    debugger
     this.selectGroup = user;
     this.groupIds = this.selectGroup.groupId;
     if(this.selectGroup.Grpmsgs==null){
@@ -259,6 +260,7 @@ export class HomeComponent implements OnInit {
       .invoke('joinGroup', this.groupIds.toString())
       .catch((err) => console.error(err));
       this.signalrService.getGroupMessages(this.groupIds).subscribe((res:any)=>{
+        this.selectGroup.Grpmsgs = [];
         console.log(res)
         for(var i in res){
           console.log("in loop",res[i].message)

@@ -48,8 +48,12 @@ namespace SignalrDemo.HubConfig
                     SignalrId = currSignalrID,
                     TimeStamp = DateTime.Now
                 };
+                //if(ctx.Connections.FirstOrDefault(x=>x.PersonId==tempPerson.Id) == null)
+                //{
                 await ctx.Connections.AddAsync(currUser);
                 await ctx.SaveChangesAsync();
+
+                //}
 
                 User newUser = new User(tempPerson.Id, tempPerson.Name, currSignalrID);
                 await Clients.Caller.SendAsync("authMeResponseSuccess", newUser);//4Tutorial
