@@ -1,0 +1,22 @@
+.cascading-right {
+    margin-right: -50px;
+  }
+  @media (max-width: 991.98px) {
+    .cascading-right {
+      margin-right: 0;
+    }
+  }
+  .textBox{
+    height: 35px;
+    width: 190px;
+    border: none;
+  padding-left: 20px;
+}
+.fl{
+    float: left;
+  width: 110px;
+  line-height: 35px;
+}
+.fontLabel{
+  color: white;
+}

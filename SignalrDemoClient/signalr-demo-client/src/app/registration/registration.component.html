@@ -1,73 +1,78 @@
+<section class="text-center text-lg-start">
+    <div class="card mb-3" style="background: linear-gradient(to bottom right, #fccb90, #d57eeb); backdrop-filter: blur(30px);
+    ">
+      <div class="row g-0 d-flex align-items-center">
+        <div class="col-lg-4 d-none d-lg-flex">
+          <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+            class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+        </div>
+        <div class="col-lg-8">
+          <div class="card-body py-5 px-md-5">
+            <form method="post" autocomplete="on">
+                <div class="form-outline mb-3">
+                  <input type="text" name="firstName" class="textBox" autofocus="on" [(ngModel)]="name" required>
+                  <label for="firstName" class="fl fontLabel"> Name </label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="email" required name="email" [(ngModel)]="email"  class="textBox">
+                  <label for="email" class="fl fontLabel"> Email ID </label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="Password" required name="password" [(ngModel)]="password"  class="textBox">
+                    <label for="password" class="fl fontLabel"> Password </label>
+                </div>
+                <input type="button" (click)="Registration()" name="Submit" class="btn btn-light  btn-rounded float-middle mb-3" value="SUBMIT">
+                <!-- <button class="btn btn-light btn-lg btn-rounded float-end mb-3" type="submit" [disabled]="!authForm.valid">Login</button> -->
+                <p class="text-center text-muted mt-5 mb-0">
+                    Have already an account?
+                    <a routerLink="/auth">Login here</a>
+                  </p>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- 
 <html>
   <head>
     <meta charset="utf-8">
     <title>Form</title>
-    <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   </head>
   <body>
-    <!-- Body of Form starts -->
-  	<div class="container">
+    <div class="container">
       <form method="post" autocomplete="on">
-        <!--First name-->
-    		<div class="box">
+            <div class="box">
           <label for="firstName" class="fl fontLabel"> Name: </label>
-    			<div class="new iconBox">
+                <div class="new iconBox">
             <i class="fa fa-user" aria-hidden="true"></i>
           </div>
-    			<div class="fr">
-    					<input type="text" name="firstName" placeholder="First Name"
+                <div class="fr">
+                        <input type="text" name="firstName" placeholder="First Name"
               class="textBox" autofocus="on" [(ngModel)]="name" required>
-    			</div>
-    			<div class="clr"></div>
-    		</div>
-    		<!--First name-->
-
-
-        <!--Second name-->
-    	
-    		<!--Second name-->
-
-
-    		<!---Phone No.------>
-    		
-    		<!---Phone No.---->
-
-
-    		<!---Email ID---->
-    		<div class="box">
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="box">
           <label for="email" class="fl fontLabel"> Email ID: </label>
-    			<div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-    			<div class="fr">
-    					<input type="email" required name="email" [(ngModel)]="email" placeholder="Email Id" class="textBox">
-    			</div>
-    			<div class="clr"></div>
-    		</div>
-    		<!--Email ID----->
-
-
-    		<!---Password------>
-    		<div class="box">
+                <div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="email" required name="email" [(ngModel)]="email" placeholder="Email Id" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="box">
           <label for="password" class="fl fontLabel"> Password </label>
-    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
-    			<div class="fr">
-    					<input type="Password" required name="password" [(ngModel)]="password" placeholder="Password" class="textBox">
-    			</div>
-    			<div class="clr"></div>
-    		</div>
-    		<!---Password---->
-
-    		<!---Gender----->
-    
-
-
-    		<!---Submit Button------>
-    		<div class="box" style="background: #2d3e3f">
-    				<input type="button" (click)="Registration()" name="Submit" class="submit" value="SUBMIT">
-    		</div>
-    		<!---Submit Button----->
+                <div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="Password" required name="password" [(ngModel)]="password" placeholder="Password" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="box" style="background: #2d3e3f">
+                    <input type="button" (click)="Registration()" name="Submit" class="submit" value="SUBMIT">
+            </div>
       </form>
   </div>
-  <!--Body of Form ends--->
   </body>
-</html>
+</html> -->

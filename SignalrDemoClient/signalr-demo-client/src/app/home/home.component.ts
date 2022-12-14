@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     let groupName = prompt('Please Enter a Name', 'Friends');
     if (groupName != null) {
       this.signalrService.createGroup(groupName, this.selectedGroup);
+      this.getGroups(Number(localStorage.getItem('personId')));
     } else {
       alert('Not Created the Group');
     }
@@ -111,8 +112,11 @@ export class HomeComponent implements OnInit {
       // debugger;
       console.log(newUser);
       this.users.push(newUser);
-      this.list.push(newUser.name);
-      console.log('this is online uxers', this.list);
+      if(!this.list.includes(newUser.name))
+      {
+        this.list.push(newUser.name);
+        console.log('this is online uxers', this.list);
+      }
     });
   }
   userOffLis(): void {

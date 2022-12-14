@@ -1,5 +1,35 @@
+<section class="text-center text-lg-start">
+  <div class="card mb-3" style="background: linear-gradient(to bottom right, #fccb90, #d57eeb); backdrop-filter: blur(30px);
+  ">
+    <div class="row g-0 d-flex align-items-center">
+      <div class="col-lg-4 d-none d-lg-flex">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
+          <form  #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="loginForm">
+            <div class="form-outline mb-3">
+              <input type="username"  id="userName" class="textBox" ngModel name="userName"  />
+              <label for="userName"  class="fl fontLabel">Username</label>
+            </div>
+            <div class="form-outline mb-4">
+              <input type="password"  id="password" class="textBox" ngModel name="password"  />
+              <label for="password" class="fl fontLabel">Password</label>
+            </div>
+            <button class="btn btn-light btn-lg btn-rounded float-end mb-3" type="submit" [disabled]="!authForm.valid">Login</button>
+           <p class="text-center text-muted mt-5 mb-0">
+            Don't have account?
+            <a routerLink="/registration">Register</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- 2Tutorial -->
-<div class="row">
+<!-- <div class="row">
   <div 
     class =
       "col-xl-2  offset-xl-5 
@@ -12,10 +42,9 @@
           <div class="form-group">
             <label for="userName">Username</label>
             <input type="username" id="userName" class="form-control" ngModel name="userName"  />
-          </div>  
+          </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-10 offset-1">
           <div class="form-group">
@@ -24,13 +53,11 @@
           </div>
         </div>
       </div>
-
-      <div class="row" style="margin-bottom: 10px;"> 
+      <div class="row" style="margin-bottom: 10px;">
         <div class="col-1 offset-1">
           <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">Login</button>
         </div>
       </div>
     </form>
   </div>
-
-</div>
+</div> -->
